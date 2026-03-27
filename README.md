@@ -59,6 +59,8 @@ Top Songs Ranked by Popularity
 - **Loudness, acousticness, and valence** are the strongest predictors of popularity
 - Class imbalance (74% non-popular) handled using `class_weight='balanced'`
 
+Note: The trained model file is not included due to its large size.
+To generate it, run the notebook which will preprocess the data and train the model.
 ---
 
 ## 🗃️ Dataset
