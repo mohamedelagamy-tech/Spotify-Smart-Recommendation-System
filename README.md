@@ -98,4 +98,4 @@ Both datasets are merged on artist + song name to combine:
 
 ---
 
-<p align="center">Built with 🎵 and 🤖 by <a href="https://github.com/your-username">Mohamed Mazen</a></p>
+<p align="center">Built with 🎵 by <a href="https://github.com/mohamedelagamy-tech">Mohamed Mazen</a></p>
