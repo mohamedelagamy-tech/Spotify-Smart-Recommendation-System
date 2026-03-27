@@ -1,2 +1,132 @@
-# Spotify-Smart-Recommendation-System
-End-to-end Smart Music Recommendation System using Spotify data, featuring content-based filtering, mood-aware search, and similarity modeling with an interactive UI
+# 🎵 Smart Music Recommendation System
+
+> An end-to-end ML pipeline that recommends songs based on mood, audio features, and lyrics.
+
+Built by **Mohamed Mazen** — Computer Engineering student at Arab Academy for Science, Technology & Maritime Transport (AASTMT).
+
+---
+
+## 🎬 Demo
+
+> 📸 Add a screenshot or GIF of the interactive widget here
+
+---
+
+## ✨ Features
+
+- 💬 **Mood-based recommendations** — type how you feel, get matching songs via NLP sentiment analysis
+- 🔍 **Audio similarity search** — find songs similar to any track using cosine similarity on audio features
+- 🎸 **Genre browser** — explore top songs across 114 genres
+- 🔎 **Song search** — search by song name or artist across 960k songs
+- 🎯 **Song clustering** — unsupervised grouping into 5 natural vibes (Party, Chill, Intense, Sad/Acoustic, Instrumental)
+- 🤖 **Popularity prediction** — classify whether a song will be popular using Random Forest, XGBoost, and Logistic Regression
+- 🖥️ **Interactive notebook UI** — tabbed ipywidgets interface built directly into the notebook
+
+---
+
+## 🧠 How It Works
+
+```
+User Input (text / song name / genre)
+        ↓
+NLP Mood Detection (VADER Sentiment Analysis)
+        ↓
+Audio Feature Matching (Cosine Similarity)
+        ↓
+Recommendation Engine
+        ↓
+Top Songs Ranked by Popularity
+```
+
+1. **Data Pipeline** — two Spotify datasets (114k + 960k songs) are merged on artist and song name, combining genre, popularity, and lyrics into a single unified dataset
+2. **Feature Engineering** — audio features normalized to 0–1 using MinMaxScaler, mood labels assigned based on valence/energy model from music psychology
+3. **Clustering** — KMeans groups songs into 5 vibes using 9 audio features; optimal k found via Elbow Method; clusters visualized in 2D using PCA (99.9% variance explained)
+4. **Classification** — three models trained to predict popularity; Random Forest achieved best results at 85% accuracy
+5. **NLP** — VADER sentiment analysis converts free-text mood descriptions into one of four mood categories (happy, calm, sad, angry)
+6. **Recommendations** — cosine similarity on normalized audio features returns the most acoustically similar songs
+
+---
+
+## 📊 Model Performance
+
+| Model | Accuracy | F1 (Popular) |
+|---|---|---|
+| Logistic Regression | 56% | 0.42 |
+| **Random Forest** | **85%** | **0.62** |
+| XGBoost | 65% | 0.51 |
+
+**Random Forest** won with 85% accuracy. Key findings:
+- **Loudness, acousticness, and valence** are the strongest predictors of popularity
+- Class imbalance (74% non-popular) handled using `class_weight='balanced'`
+
+---
+
+## 🗃️ Dataset
+
+| Dataset | Songs | Source |
+|---|---|---|
+| Spotify Tracks Dataset | 114k | Kaggle — maharshipandya |
+| Songs with Attributes & Lyrics | 960k | Kaggle |
+
+Both datasets are merged on artist + song name to combine:
+- Audio features (danceability, energy, valence, tempo, etc.)
+- Genre and popularity metadata
+- Song lyrics for NLP analysis
+
+> ⚠️ Some recent songs may not appear due to dataset coverage. Spotify API integration is ready to be enabled once developer credentials are approved.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Python** — pandas, numpy, scikit-learn, XGBoost
+- **NLP** — vaderSentiment
+- **Visualization** — matplotlib, seaborn
+- **UI** — ipywidgets
+- **ML** — KMeans, PCA, Random Forest, XGBoost, Logistic Regression
+- **Similarity** — cosine similarity on normalized audio features
+
+---
+
+## 🚀 Setup
+
+### 1. Clone the repo
+```bash
+git clone https://github.com/your-username/spotify-recommendation-system.git
+cd spotify-recommendation-system
+```
+
+### 2. Install dependencies
+```bash
+pip install pandas numpy scikit-learn xgboost matplotlib seaborn vaderSentiment ipywidgets joblib
+```
+
+### 3. Download the datasets
+- [Spotify Tracks Dataset](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset) — save as `dataset.csv.zip`
+- [Songs with Attributes & Lyrics](https://www.kaggle.com/) — save as `songs_with_attributes_and_lyrics.csv`
+
+### 4. Update file paths
+In the notebook, update the paths in `loadData()`:
+```python
+df_old, df_new = loadData(
+    r"path\to\dataset.csv.zip",
+    r"path\to\songs_with_attributes_and_lyrics.csv"
+)
+```
+
+### 5. Run the notebook
+Open `SpotifySRS.ipynb` in VS Code or Jupyter and run all cells top to bottom.
+
+---
+
+## 🗺️ Roadmap
+
+- [ ] Spotify API integration for live song lookup
+- [ ] Lyrics-based mood detection using transformer models
+- [ ] Streamlit web app deployment
+- [ ] Hybrid recommendation system (content + collaborative filtering)
+- [ ] SHAP explainability for model predictions
+
+---
+
+<p align="center">Built with 🎵 and 🤖 by <a href="https://github.com/your-username">Mohamed Mazen</a></p>
