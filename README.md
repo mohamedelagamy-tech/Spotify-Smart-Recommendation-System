@@ -8,7 +8,7 @@ Built by **Mohamed Mazen** — Computer Engineering student at Arab Academy for 
 
 ## 🎬 Demo
 
-> 📸 Add a screenshot or GIF of the interactive widget here
+<img width="1754" height="846" alt="image" src="https://github.com/user-attachments/assets/7d6f73fa-4df3-47bf-8d5e-62c03a09cfce" />
 
 ---
 
