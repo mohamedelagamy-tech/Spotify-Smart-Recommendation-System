@@ -66,7 +66,7 @@ Top Songs Ranked by Popularity
 | Dataset | Songs | Source |
 |---|---|---|
 | Spotify Tracks Dataset | 114k | Kaggle — maharshipandya |
-| Songs with Attributes & Lyrics | 960k | Kaggle |
+| Songs with Attributes & Lyrics | 960k | Kaggle — BwandoWando |
 
 Both datasets are merged on artist + song name to combine:
 - Audio features (danceability, energy, valence, tempo, etc.)
@@ -85,37 +85,6 @@ Both datasets are merged on artist + song name to combine:
 - **UI** — ipywidgets
 - **ML** — KMeans, PCA, Random Forest, XGBoost, Logistic Regression
 - **Similarity** — cosine similarity on normalized audio features
-
----
-
-## 🚀 Setup
-
-### 1. Clone the repo
-```bash
-git clone https://github.com/your-username/spotify-recommendation-system.git
-cd spotify-recommendation-system
-```
-
-### 2. Install dependencies
-```bash
-pip install pandas numpy scikit-learn xgboost matplotlib seaborn vaderSentiment ipywidgets joblib
-```
-
-### 3. Download the datasets
-- [Spotify Tracks Dataset](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset) — save as `dataset.csv.zip`
-- [Songs with Attributes & Lyrics](https://www.kaggle.com/) — save as `songs_with_attributes_and_lyrics.csv`
-
-### 4. Update file paths
-In the notebook, update the paths in `loadData()`:
-```python
-df_old, df_new = loadData(
-    r"path\to\dataset.csv.zip",
-    r"path\to\songs_with_attributes_and_lyrics.csv"
-)
-```
-
-### 5. Run the notebook
-Open `SpotifySRS.ipynb` in VS Code or Jupyter and run all cells top to bottom.
 
 ---
 
