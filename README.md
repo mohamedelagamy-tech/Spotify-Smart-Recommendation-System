@@ -77,7 +77,7 @@ Both datasets are merged on artist + song name to combine:
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Libraries used
 
 - **Python** — pandas, numpy, scikit-learn, XGBoost
 - **NLP** — vaderSentiment
@@ -85,16 +85,6 @@ Both datasets are merged on artist + song name to combine:
 - **UI** — ipywidgets
 - **ML** — KMeans, PCA, Random Forest, XGBoost, Logistic Regression
 - **Similarity** — cosine similarity on normalized audio features
-
----
-
-## 🗺️ Roadmap
-
-- [ ] Spotify API integration for live song lookup
-- [ ] Lyrics-based mood detection using transformer models
-- [ ] Streamlit web app deployment
-- [ ] Hybrid recommendation system (content + collaborative filtering)
-- [ ] SHAP explainability for model predictions
 
 ---
 
